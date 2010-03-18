@@ -1049,7 +1049,7 @@ module ActiveRecord
             WHEN COLUMNPROPERTY(OBJECT_ID(columns.TABLE_SCHEMA+'.'+columns.TABLE_NAME), columns.COLUMN_NAME, 'IsIdentity') = 0 THEN NULL
             ELSE 1
           END as is_identity
-          FROM #{db_name}INFORMATION_SCHEMA.COLUMNS columns
+          FROM #{db_name}.INFORMATION_SCHEMA.COLUMNS columns
           WHERE columns.TABLE_NAME = '#{table_name}'
           ORDER BY columns.ordinal_position
         }.gsub(/[ \t\r\n]+/,' ')
